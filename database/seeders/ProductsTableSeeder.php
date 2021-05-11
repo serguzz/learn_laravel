@@ -18,7 +18,7 @@ class ProductsTableSeeder extends Seeder
               'title' => 'Product '.$i,
               'price' => rand(200, 1500),
               'in_stock' => 1,
-              'description' => 'Lorem ipsum dolor ...',
+              'description' => 'Lorem ipsum dolor ... Заглушка для описания',
            ]);
         }
     }
