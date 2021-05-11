@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCatgoriesTable extends Migration
+class AddCategoryIdToProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,9 @@ class CreateCatgoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('catgories', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->text('desc');
-            $table->string('img');
-            $table->string('alias');
-
-            $table->timestamps();
+        Schema::table('products', function (Blueprint $table) {
+          $table->bigInteger('category_id')->unsigned();
+          $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 
@@ -31,6 +26,8 @@ class CreateCatgoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('catgories');
+        Schema::table('products', function (Blueprint $table) {
+            //
+        });
     }
 }

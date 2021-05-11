@@ -18,5 +18,7 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', 'App\Http\Controllers\HomeController@index');
+
+Route::get('/{cat}', 'App\Http\Controllers\ProductController@showCategory')->name('showCategory');
 Route::get('/{cat}/{product_id}', 'App\Http\Controllers\ProductController@show')->name('showProduct');
 Route::get('/contact', 'App\Http\Controllers\ContactController@index');
