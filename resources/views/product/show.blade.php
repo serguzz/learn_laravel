@@ -41,12 +41,22 @@
 				<!-- Product Image -->
 				<div class="col-lg-6">
 					<div class="details_image">
-						<div class="details_image_large"><img src="/images/details_1.jpg" alt=""><div class="product_extra product_new"><a href="categories.html">New</a></div></div>
+						@php
+								$image = 'no_image.png';
+								if (count($item->images) > 0) {
+										$image = $item->images[0]['img'];
+								}
+						@endphp
+						<div class="details_image_large"><img src="/images/{{$image}}" alt=""><div class="product_extra product_new"><a href="categories.html">New</a></div></div>
 						<div class="details_image_thumbnails d-flex flex-row align-items-start justify-content-between">
-							<div class="details_image_thumbnail active" data-image="/images/details_1.jpg"><img src="/images/details_1.jpg" alt=""></div>
-							<div class="details_image_thumbnail" data-image="/images/details_2.jpg"><img src="/images/details_2.jpg" alt=""></div>
-							<div class="details_image_thumbnail" data-image="/images/details_3.jpg"><img src="/images/details_3.jpg" alt=""></div>
-							<div class="details_image_thumbnail" data-image="/images/details_4.jpg"><img src="/images/details_4.jpg" alt=""></div>
+									@if (count($item->images) > 0)
+											<div class="details_image_thumbnail active" data-image="/images/{{$item->images[0]['img']}}"><img src="/images/{{$item->images[0]['img']}}" alt=""></div>
+									@endif
+
+									@for ($i=1; $i<count($item->images); $i++)
+										<div class="details_image_thumbnail" data-image="/images/{{$item->images[$i]['img']}}"><img src="/images/{{$item->images[$i]['img']}}" alt=""></div>
+									@endfor
+								
 						</div>
 					</div>
 				</div>
