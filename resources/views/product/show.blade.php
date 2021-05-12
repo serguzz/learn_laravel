@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-	@section('title', 'Главная')
+	@section('title', $item->title)
 
   @section('custom_css')
       <link rel="stylesheet" type="text/css" href="/styles/product.css">
@@ -56,7 +56,7 @@
 									@for ($i=1; $i<count($item->images); $i++)
 										<div class="details_image_thumbnail" data-image="/images/{{$item->images[$i]['img']}}"><img src="/images/{{$item->images[$i]['img']}}" alt=""></div>
 									@endfor
-								
+
 						</div>
 					</div>
 				</div>
