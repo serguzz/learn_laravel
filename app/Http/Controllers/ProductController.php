@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
+//use Illuminate\Pagination\LengthAwarePaginator;
 
 class ProductController extends Controller
 {
@@ -19,22 +20,22 @@ class ProductController extends Controller
     public function showCategory(Request $request, $cat_alias){
 
         $category = Category::where('alias', $cat_alias)->first();
-
-        $products = Product::where('category_id', $category->id)->get();
+        $paginateQuantity = 2;
+        $products = Product::where('category_id', $category->id)->paginate($paginateQuantity);
 
         if (isset($request->orderBy)) {
           if ($request->orderBy == 'price-low-high') {
-            $products = Product::where('category_id', $category->id)->orderBy('price')->get();
+            $products = Product::where('category_id', $category->id)->orderBy('price')->paginate($paginateQuantity);
           }
 
           if ($request->orderBy == 'price-high-low') {
-            $products = Product::where('category_id', $category->id)->orderBy('price', 'desc')->get();
+            $products = Product::where('category_id', $category->id)->orderBy('price', 'desc')->paginate($paginateQuantity);
           }
           if ($request->orderBy == 'name-a-z') {
-            $products = Product::where('category_id', $category->id)->orderBy('title')->get();
+            $products = Product::where('category_id', $category->id)->orderBy('title')->paginate($paginateQuantity);
           }
           if ($request->orderBy == 'name-z-a') {
-            $products = Product::where('category_id', $category->id)->orderBy('title', 'desc')->get();
+            $products = Product::where('category_id', $category->id)->orderBy('title', 'desc')->paginate($paginateQuantity);
           }
         }
 
