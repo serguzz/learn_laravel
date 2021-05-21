@@ -17,8 +17,12 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', 'App\Http\Controllers\HomeController@index');
+Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
+Route::get('/cart', 'App\Http\Controllers\CartController@index')->name('cartIndex');
+Route::post('/add-to-cart', 'App\Http\Controllers\CartController@addToCart')->name('addToCart');
+
+
+Route::get('/contact', 'App\Http\Controllers\ContactController@index')->name('contact');
 
 Route::get('/{cat}', 'App\Http\Controllers\ProductController@showCategory')->name('showCategory');
 Route::get('/{cat}/{product_id}', 'App\Http\Controllers\ProductController@show')->name('showProduct');
-Route::get('/contact', 'App\Http\Controllers\ContactController@index');

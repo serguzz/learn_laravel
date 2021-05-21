@@ -9,6 +9,40 @@
 
   @section('custom_js')
       <script src="/js/product.js"></script>
+			<script>
+					$(document).ready( function() {
+							$('.cart_button').click( function (event) {
+									event.preventDefault();
+									addToCart();
+							})
+					})
+
+					function addToCart() {
+							let id = $('.details_name').data('id');
+							let quantity = parseInt($('#quantity_input').val());
+							let total_quantity = parseInt($('.cart-quantity').text());
+
+							total_quantity += quantity;
+							$('.cart-quantity').text(total_quantity);
+
+							$.ajax({
+									url: "{{route('addToCart')}}",
+									type: "POST",
+									data: {
+										id: id,
+										quantity: quantity,
+									},
+									headers: {
+										'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+									},
+									success: (response_data) => {
+											console.log(response_data);
+									},
+
+							});
+
+					}
+			</script>
   @endsection
 
   @section('content')
@@ -64,15 +98,13 @@
 				<!-- Product Content -->
 				<div class="col-lg-6">
 					<div class="details_content">
-						<div class="details_name">{{$item->title}}</div>
+						<div class="details_name" data-id="{{$item->id}}">{{$item->title}}</div>
 						@if($item->new_price)
 							<div class="details_price">${{$item->new_price}}</div>
 							<div class="details_discount">${{$item->price}}</div>
 						@else
 							<div class="details_price">${{$item->price}}</div>
 						@endif
-
-
 
 						<!-- In Stock -->
 						<div class="in_stock_container">
