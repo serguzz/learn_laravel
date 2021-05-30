@@ -42,6 +42,8 @@
 											<li><a href="/cart">Cart</a></li>
 											<li><a href="checkout.html">Check out</a></li>
 											<li><a href="{{route('contact')}}">Contact</a></li>
+
+
 										</ul>
 									</li>
 									<li class="hassubs">
@@ -56,6 +58,7 @@
 									<li><a href="#">Accessories</a></li>
 									<li><a href="#">Offers</a></li>
 									<li><a href="{{route('contact')}}">Contact</a></li>
+									<li><a href="{{route('login')}}">Login</a></li>
 								</ul>
 							</nav>
 							<div class="header_extra ml-auto">
@@ -101,7 +104,10 @@
 					</div>
 				</div>
 			</div>
+
 		</div>
+
+
 
 		<!-- Search Panel -->
 		<div class="search_panel trans_300">

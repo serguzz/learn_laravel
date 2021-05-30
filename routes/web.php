@@ -20,7 +20,7 @@ use App\Http\Controllers\HomeController;
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
+//Auth::routes();
 
 Route::view('/login','auth.login')->name('login');
 //Route::view('/logout','auth.logout')->name('logout');
