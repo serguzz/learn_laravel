@@ -2,6 +2,17 @@
 
 	@section('title', 'Контакты')
 
+	@section('custom_css')
+			<link rel="stylesheet" type="text/css" href="styles/contact.css">
+			<link rel="stylesheet" type="text/css" href="styles/contact_responsive.css">
+  @endsection
+
+	@section('custom_js')
+			<script src="js/contact.js"></script>
+	@endsection
+
+
+
 	@section('content')
 
 <!-- Home -->
@@ -74,22 +85,22 @@
           <div class="contact_info_section">
             <div class="contact_info_title">Marketing</div>
             <ul>
-              <li>Phone: <span>+53 345 7953 3245</span></li>
-              <li>Email: <span>yourmail@gmail.com</span></li>
+              <li>Phone: <span>+38 095 0137282</span></li>
+              <li>Email: <span>serguz@ukr.net</span></li>
             </ul>
           </div>
           <div class="contact_info_section">
             <div class="contact_info_title">Shippiing & Returns</div>
             <ul>
-              <li>Phone: <span>+53 345 7953 3245</span></li>
-              <li>Email: <span>yourmail@gmail.com</span></li>
+              <li>Phone: <span>+38 095 0137282</span></li>
+              <li>Email: <span>serguz@ukr.net</span></li>
             </ul>
           </div>
           <div class="contact_info_section">
             <div class="contact_info_title">Information</div>
             <ul>
-              <li>Phone: <span>+53 345 7953 3245</span></li>
-              <li>Email: <span>yourmail@gmail.com</span></li>
+              <li>Phone: <span>+38 095 0137282</span></li>
+              <li>Email: <span>serguz@ukr.net</span></li>
             </ul>
           </div>
         </div>
